@@ -18,7 +18,9 @@ class TweetTableViewCell: UITableViewCell {
     
     @IBOutlet weak var tweetTextLabel: UILabel!
     
+    @IBOutlet weak var favoriteButton: UIButton!
     
+    @IBOutlet weak var retweetButton: UIButton!
     
     
     override func awakeFromNib() {

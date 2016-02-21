@@ -15,6 +15,8 @@ class Tweet: NSObject {
     var retweetCount: Int = 0
     var favoritesCount: Int = 0
     var timeStamp: NSDate?
+    var favorited: Bool = false
+    var retweeted: Bool = false
 
     
     init(dictionary: NSDictionary){

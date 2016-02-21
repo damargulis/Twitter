@@ -64,9 +64,57 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         cell.profileImageView.setImageWithURL((tweet.user?.profileImageUrl)!)
         
+        cell.favoriteButton.setTitle("Fav's: \(tweet.favoritesCount)", forState: .Normal)
+        cell.retweetButton.setTitle("RT's: \(tweet.retweetCount)", forState: .Normal)
+        
+        cell.favoriteButton.tag = indexPath.row
+        cell.retweetButton.tag = indexPath.row
+    
+        cell.favoriteButton.addTarget(self, action: "onTouchFav:", forControlEvents: .TouchUpInside)
+        cell.retweetButton.addTarget(self, action: "onTouchRT:", forControlEvents: .TouchUpInside)
+        
+        if(tweet.favorited){
+            cell.favoriteButton.setTitleColor(UIColor.yellowColor(), forState: .Normal)
+        } else{
+            cell.favoriteButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        }
+        
+        if(tweet.retweeted){
+            cell.retweetButton.setTitleColor(UIColor.yellowColor(), forState: .Normal)
+        } else{
+            cell.retweetButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        }
+        
         
         return cell
         
+    }
+    
+    @IBAction func onTouchFav(sender: UIButton){
+        let tweet = tweets[sender.tag]
+        if(tweet.favorited){
+            tweet.favoritesCount = tweet.favoritesCount - 1
+            tweet.favorited = false
+        } else{
+            tweet.favoritesCount = tweet.favoritesCount + 1
+            tweet.favorited = true
+        }
+        
+        tweetTableView.reloadData()
+        
+    }
+    
+    @IBAction func onTouchRT(sender: UIButton){
+        let tweet = tweets[sender.tag]
+        if(tweet.retweeted){
+            tweet.retweetCount = tweet.retweetCount - 1
+            tweet.retweeted = false
+        } else{
+            tweet.retweetCount = tweet.retweetCount + 1
+            tweet.retweeted = true
+        }
+        
+        tweetTableView.reloadData()
     }
     
     /*

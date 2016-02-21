@@ -47,6 +47,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abi-LV-0oT">
+                                <rect key="frame" x="0.0" y="20" width="67" height="31"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="onLogoutButton:" destination="PDh-vn-SWf" eventType="touchUpInside" id="pjS-PF-nJT"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LXi-xR-OWL">
                                 <rect key="frame" x="0.0" y="59" width="320" height="509"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -77,26 +84,36 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ab8-Ph-FXZ">
-                                                    <rect key="frame" x="12" y="68" width="53" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="53" id="gYL-g7-U1g"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Fav's: 0"/>
-                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8H-15-RVd">
-                                                    <rect key="frame" x="14" y="101" width="48" height="30"/>
+                                                    <rect key="frame" x="8" y="98" width="60" height="27"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="48" id="zOF-lk-1wC"/>
+                                                        <constraint firstAttribute="width" constant="60" id="zOF-lk-1wC"/>
                                                     </constraints>
-                                                    <state key="normal" title="RT's: 0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <state key="normal" title="RT's: 0">
+                                                        <color key="titleColor" red="0.97817138469999998" green="1" blue="0.9974808999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10/10/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zdr-29-rZU">
-                                                    <rect key="frame" x="247" y="0.0" width="65" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="264" y="0.0" width="48" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ab8-Ph-FXZ">
+                                                    <rect key="frame" x="8" y="68" width="60" height="27"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="gYL-g7-U1g"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title="Fav's: 0">
+                                                        <color key="titleColor" red="0.97817138469999998" green="1" blue="0.9974808999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="cRx-HN-poA" firstAttribute="leading" secondItem="FsB-Ft-q3Q" secondAttribute="trailing" constant="8" id="0Dg-pU-aLd"/>
@@ -117,8 +134,11 @@
                                                 <constraint firstItem="Ab8-Ph-FXZ" firstAttribute="top" secondItem="FsB-Ft-q3Q" secondAttribute="bottom" constant="8" id="ouH-gb-Nrj"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.46680976265692925" green="0.75480027837759434" blue="0.86482477188110352" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <outlet property="favoriteButton" destination="Ab8-Ph-FXZ" id="Mda-j3-JAg"/>
                                             <outlet property="profileImageView" destination="FsB-Ft-q3Q" id="4Lc-q3-YeD"/>
+                                            <outlet property="retweetButton" destination="v8H-15-RVd" id="api-Gc-5mk"/>
                                             <outlet property="timeStampLabel" destination="Zdr-29-rZU" id="xCu-Sk-SVb"/>
                                             <outlet property="tweetTextLabel" destination="Uv4-34-0Aa" id="NUL-SJ-vB3"/>
                                             <outlet property="usernameLabel" destination="cRx-HN-poA" id="DT6-4e-vQC"/>
@@ -126,13 +146,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abi-LV-0oT">
-                                <rect key="frame" x="0.0" y="20" width="67" height="31"/>
-                                <state key="normal" title="Logout"/>
-                                <connections>
-                                    <action selector="onLogoutButton:" destination="PDh-vn-SWf" eventType="touchUpInside" id="pjS-PF-nJT"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
