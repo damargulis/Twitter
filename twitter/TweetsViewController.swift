@@ -96,8 +96,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             tweet.favoritesCount = tweet.favoritesCount - 1
             tweet.favorited = false
         } else{
-            tweet.favoritesCount = tweet.favoritesCount + 1
-            tweet.favorited = true
+            TwitterClient.sharedInstance.fav(tweet)
         }
         
         tweetTableView.reloadData()
@@ -109,13 +108,15 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         if(tweet.retweeted){
             tweet.retweetCount = tweet.retweetCount - 1
             tweet.retweeted = false
+            
+            
         } else{
-            tweet.retweetCount = tweet.retweetCount + 1
-            tweet.retweeted = true
+            TwitterClient.sharedInstance.retweet(tweet)
         }
         
         tweetTableView.reloadData()
     }
+    
     
     /*
     // MARK: - Navigation

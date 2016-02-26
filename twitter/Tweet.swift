@@ -18,6 +18,7 @@ class Tweet: NSObject {
     var favorited: Bool = false
     var retweeted: Bool = false
 
+    var id: Int
     
     init(dictionary: NSDictionary){
         user = User(dictionary: dictionary["user"] as! NSDictionary)
@@ -34,6 +35,7 @@ class Tweet: NSObject {
             formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
             timeStamp = formatter.dateFromString(createdAtString)
         }
+        id = (dictionary["id"] as? Int)!
         
         
         

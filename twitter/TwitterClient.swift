@@ -176,4 +176,32 @@ class TwitterClient: BDBOAuth1SessionManager {
         
 
     }
+    
+    func retweet(tweet: Tweet){
+        
+        POST("https://api.twitter.com/1.1/statuses/retweet/\(tweet.id).json", parameters: nil, progress: { (NSProgress) -> Void in
+                print("hi")
+            }, success: { (data: NSURLSessionDataTask, object: AnyObject?) -> Void in
+                print("also hi")
+                tweet.retweeted = true
+                tweet.retweetCount = tweet.retweetCount+1
+            }) { (data: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("hi again")
+                print(error)
+        }
+        
+    }
+    
+    func fav(tweet: Tweet){
+        let params : [String:String] = ["id":"\(tweet.id)"]
+        POST("https://api.twitter.com/1.1/favorites/create.json", parameters: params, success: { (data: NSURLSessionDataTask, object: AnyObject?) -> Void in
+                print("success")
+                tweet.favorited = true
+                tweet.favoritesCount = tweet.favoritesCount + 1
+            }) { (data: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("you fail")
+                print(error)
+        }
+        
+    }
 }
