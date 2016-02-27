@@ -12,16 +12,26 @@ class ProfileViewController: UIViewController {
 
     var user: User!
     
+    @IBOutlet weak var headerImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
     
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var numTweetsLabel: UILabel!
+    @IBOutlet weak var numFollowingLabel: UILabel!
+    @IBOutlet weak var numFollowersLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         usernameLabel.text = user.name as? String
-        
-        
+        descriptionLabel.text = user.tagline as? String
+        numTweetsLabel.text = "\(user.tweetCount!) Tweets"
+        numFollowingLabel.text = "\(user.followingCount!) Following"
+        numFollowersLabel.text = "\(user.followerCount!) Followers"
 
+        profileImageView.setImageWithURL(user.profileImageUrl!)
+        headerImageView.setImageWithURL(user.headerImageUrl!)
     }
 
     override func didReceiveMemoryWarning() {
