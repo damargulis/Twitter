@@ -45,21 +45,32 @@ class TweetDetailViewController: UIViewController {
     
     @IBAction func onTapFav(sender: AnyObject) {
         if(tweet.favorited){
+            tweet.favorited = false
+            tweet.favoritesCount = tweet.favoritesCount - 1
             
-        }else{
+            TwitterClient.sharedInstance.unfav(tweet)
+        } else{
+            tweet.favorited = true
+            tweet.favoritesCount = tweet.favoritesCount + 1
+            
             TwitterClient.sharedInstance.fav(tweet)
-                    favoritesLabel.text = "Favorites: \(tweet.favoritesCount)"
         }
+        favoritesLabel.text = "Favorites: \(tweet.favoritesCount)"
     }
     
     @IBAction func onTapRT(sender: AnyObject) {
         if(tweet.retweeted){
+            tweet.retweeted = false
+            tweet.retweetCount = tweet.retweetCount - 1
             
-        }else{
+            TwitterClient.sharedInstance.unRetweet(tweet)
+        } else{
+            tweet.retweeted = true
+            tweet.retweetCount = tweet.retweetCount + 1
+            
             TwitterClient.sharedInstance.retweet(tweet)
-                    retweetsLabel.text = "Retweets: \(tweet.retweetCount)"
         }
-        
+        retweetsLabel.text = "Retweets: \(tweet.retweetCount)"
     }
     
     

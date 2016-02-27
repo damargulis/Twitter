@@ -19,6 +19,7 @@ class Tweet: NSObject {
     var retweeted: Bool = false
 
     var id: Int
+    var idstr: String?
     
     init(dictionary: NSDictionary){
         user = User(dictionary: dictionary["user"] as! NSDictionary)
@@ -37,7 +38,7 @@ class Tweet: NSObject {
         }
         
         id = (dictionary["id"] as? Int)!
-        
+        idstr = dictionary["id_str"] as? String
         
         
     }

@@ -179,31 +179,60 @@ class TwitterClient: BDBOAuth1SessionManager {
     
     func retweet(tweet: Tweet){
         
-        POST("https://api.twitter.com/1.1/statuses/retweet/\(tweet.id).json", parameters: nil, progress: { (NSProgress) -> Void in
+        POST("https://api.twitter.com/1.1/statuses/retweet/\(tweet.idstr!).json", parameters: nil, progress: { (NSProgress) -> Void in
                 print("hi")
             }, success: { (data: NSURLSessionDataTask, object: AnyObject?) -> Void in
-                print("also hi")
-                tweet.retweeted = true
-                tweet.retweetCount = tweet.retweetCount+1
+                print("Retweeted")
+//                tweet.retweeted = true
+//                tweet.retweetCount = tweet.retweetCount+1
             }) { (data: NSURLSessionDataTask?, error: NSError) -> Void in
-                print("hi again")
+                print("Failed to retweet")
                 print(error)
         }
         
     }
     
+    func unRetweet(tweet: Tweet){
+        POST("https://api.twitter.com/1.1/statuses/unretweet/\(tweet.idstr!).json", parameters: nil, progress: { (NSProgress) -> Void in
+                print("Im going!!!")
+            }, success: { (data: NSURLSessionDataTask, object: AnyObject?) -> Void in
+                print("Unretweeted")
+//                tweet.retweeted = false
+//                tweet.retweetCount = tweet.retweetCount - 1
+            }) { (data: NSURLSessionDataTask?, error: NSError) -> Void in
+                print("Failed to unretweet")
+                print(error)
+        }
+    }
+    
     func fav(tweet: Tweet){
-        POST("https://api.twitter.com/1.1/favorites/create.json?id=\(tweet.id)", parameters: nil, progress: {
+        print("id:")
+        print(tweet.id)
+        print(tweet.idstr)
+        POST("https://api.twitter.com/1.1/favorites/create.json?id=\(tweet.idstr!)", parameters: nil, progress: {
             (NSProgress) -> Void in
             print("hih")
         }, success: { (data: NSURLSessionDataTask, object: AnyObject?) -> Void in
-                print("success")
-                tweet.favorited = true
-                tweet.favoritesCount = tweet.favoritesCount + 1
+                print("Favorited")
+//                tweet.favorited = true
+//                tweet.favoritesCount = tweet.favoritesCount + 1
             }) { (data: NSURLSessionDataTask?, error: NSError) -> Void in
-                print("you fail")
+                print("Failed to favorite")
                 print(error)
         }
-        
+    }
+    
+    func unfav(tweet: Tweet){
+        POST("https://api.twitter.com/1.1/favorites/destroy.json?id=\(tweet.idstr!)", parameters: nil, progress: {
+            (NSProgress) -> Void in
+            print("progress!")
+        }, success: { (data: NSURLSessionDataTask, object: AnyObject?) -> Void in
+            print("Unfavorited")
+//            tweet.favorited = false
+//            tweet.favoritesCount = tweet.favoritesCount - 1
+        }) { (data: NSURLSessionDataTask?, error: NSError) -> Void in
+            print("Failed to unfavorite")
+            print(error)
+        }
     }
 }

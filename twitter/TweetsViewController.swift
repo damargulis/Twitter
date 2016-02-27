@@ -97,27 +97,32 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     @IBAction func onTouchFav(sender: UIButton){
         let tweet = tweets[sender.tag]
         if(tweet.favorited){
-            tweet.favoritesCount = tweet.favoritesCount - 1
             tweet.favorited = false
+            tweet.favoritesCount = tweet.favoritesCount - 1
+            
+            TwitterClient.sharedInstance.unfav(tweet)
         } else{
+            tweet.favorited = true
+            tweet.favoritesCount = tweet.favoritesCount + 1
+            
             TwitterClient.sharedInstance.fav(tweet)
         }
-        
         tweetTableView.reloadData()
-        
     }
     
     @IBAction func onTouchRT(sender: UIButton){
         let tweet = tweets[sender.tag]
         if(tweet.retweeted){
-            tweet.retweetCount = tweet.retweetCount - 1
             tweet.retweeted = false
-            
-            
+            tweet.retweetCount = tweet.retweetCount - 1
+
+            TwitterClient.sharedInstance.unRetweet(tweet)
         } else{
+            tweet.retweeted = true
+            tweet.retweetCount = tweet.retweetCount + 1
+            
             TwitterClient.sharedInstance.retweet(tweet)
         }
-        
         tweetTableView.reloadData()
     }
     
