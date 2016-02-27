@@ -193,8 +193,10 @@ class TwitterClient: BDBOAuth1SessionManager {
     }
     
     func fav(tweet: Tweet){
-        let params : [String:String] = ["id":"\(tweet.id)"]
-        POST("https://api.twitter.com/1.1/favorites/create.json", parameters: params, success: { (data: NSURLSessionDataTask, object: AnyObject?) -> Void in
+        POST("https://api.twitter.com/1.1/favorites/create.json?id=\(tweet.id)", parameters: nil, progress: {
+            (NSProgress) -> Void in
+            print("hih")
+        }, success: { (data: NSURLSessionDataTask, object: AnyObject?) -> Void in
                 print("success")
                 tweet.favorited = true
                 tweet.favoritesCount = tweet.favoritesCount + 1

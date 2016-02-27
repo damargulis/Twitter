@@ -35,6 +35,7 @@ class Tweet: NSObject {
             formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
             timeStamp = formatter.dateFromString(createdAtString)
         }
+        
         id = (dictionary["id"] as? Int)!
         
         

@@ -85,6 +85,10 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             cell.retweetButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         }
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: "imageTapped:")
+        cell.profileImageView.addGestureRecognizer(tapGesture)
+        cell.profileImageView.userInteractionEnabled = true
+        cell.profileImageView.tag = indexPath.row
         
         return cell
         
@@ -117,15 +121,33 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tweetTableView.reloadData()
     }
     
+    func imageTapped(gesture: UIGestureRecognizer) {
+        if let imageView = gesture.view as? UIImageView{
+            print("image tapped")
+            let vc = storyboard?.instantiateViewControllerWithIdentifier("profileViewController") as! ProfileViewController
+            vc.user = tweets[imageView.tag].user
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
-    /*
+    
+
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     // Get the new view controller using segue.destinationViewController.
     // Pass the selected object to the new view controller.
+        
+        let cell = sender as! UITableViewCell
+        let indexPath = tweetTableView.indexPathForCell(cell)
+        let tweet = tweets[indexPath!.row]
+        
+        let detailViewController = segue.destinationViewController as! TweetDetailViewController
+        detailViewController.tweet = tweet
+        
+        
     }
-    */
     
 }
