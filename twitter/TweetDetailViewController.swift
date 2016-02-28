@@ -25,7 +25,7 @@ class TweetDetailViewController: UIViewController {
         
         textLabel.text = tweet.text
         usernameLabel.text = tweet.user?.name as? String
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd 'at' HH:mm"
         let date = dateFormatter.stringFromDate(tweet.timeStamp!)
         timestampLabel.text = date
