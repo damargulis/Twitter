@@ -253,6 +253,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZdS-ge-anx">
                                 <rect key="frame" x="24" y="425" width="39" height="30"/>
                                 <state key="normal" title="Reply"/>
+                                <connections>
+                                    <segue destination="kMT-mE-O8U" kind="modal" id="rVt-gY-zb3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Eg-GR-Qgd">
                                 <rect key="frame" x="145" y="425" width="30" height="30"/>
@@ -375,4 +378,7 @@
             <point key="canvasLocation" x="497" y="295"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="rVt-gY-zb3"/>
+    </inferredMetricsTieBreakers>
 </document>
