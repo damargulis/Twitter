@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ComposeViewController: UIViewController {
+class ComposeViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var backButton: UIButton!
     
@@ -16,10 +16,17 @@ class ComposeViewController: UIViewController {
     
     @IBOutlet weak var textView: UITextView!
     
+    @IBOutlet weak var characterCountLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        textView.delegate = self
         textView.text = "Enter Tweet"
+        characterCountLabel.text = "129/140 Characters Remaining"
+       
+        
         // Do any additional setup after loading the view.
     }
 
@@ -37,6 +44,14 @@ class ComposeViewController: UIViewController {
     @IBAction func onTapSend(sender: AnyObject) {
         TwitterClient.sharedInstance.postStatus(textView.text)
         self.dismissViewControllerAnimated(false, completion: nil)
+        
+    }
+    
+    func textViewDidChange(textView: UITextView) {
+        let numCharacters = textView.text.characters.count
+        
+        let numLeft = 140-numCharacters
+        characterCountLabel.text = "\(numLeft)/140 Characters Remaining"
         
     }
     

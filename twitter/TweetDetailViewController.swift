@@ -34,7 +34,8 @@ class TweetDetailViewController: UIViewController {
         favoritesLabel.text = "Favorites: \(tweet.favoritesCount)"
         retweetsLabel.text = "Retweets: \(tweet.retweetCount)"
         
-
+        
+        
         // Do any additional setup after loading the view.
     }
 

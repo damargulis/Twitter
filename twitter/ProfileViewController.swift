@@ -32,6 +32,7 @@ class ProfileViewController: UIViewController {
 
         profileImageView.setImageWithURL(user.profileImageUrl!)
         headerImageView.setImageWithURL(user.headerImageUrl!)
+        
     }
 
     override func didReceiveMemoryWarning() {

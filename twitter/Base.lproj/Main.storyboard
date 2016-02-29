@@ -191,8 +191,14 @@
                                     <action selector="onTapSend:" destination="kMT-mE-O8U" eventType="touchUpInside" id="Bwv-Rm-BG4"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="140/140 Characters Remaining" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivy-Na-Uga">
+                                <rect key="frame" x="126" y="58" width="174" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yyy-JA-yWY">
-                                <rect key="frame" x="20" y="58" width="280" height="265"/>
+                                <rect key="frame" x="20" y="81" width="280" height="265"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -203,6 +209,7 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="JGl-hH-q09" id="Uh3-hR-oyX"/>
+                        <outlet property="characterCountLabel" destination="ivy-Na-Uga" id="m0a-MG-M1x"/>
                         <outlet property="sendButton" destination="3OW-yx-Xph" id="Iqg-Mj-27c"/>
                         <outlet property="textView" destination="yyy-JA-yWY" id="YaG-fg-1P5"/>
                     </connections>
