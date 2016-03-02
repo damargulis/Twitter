@@ -18,13 +18,20 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var characterCountLabel: UILabel!
     
+    var sendTo: Tweet? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         textView.delegate = self
-        textView.text = "Enter Tweet"
-        characterCountLabel.text = "129/140 Characters Remaining"
+        if let sendTo = sendTo {
+            textView.text = "@\(sendTo.user?.screenname as! String)"
+        } else{
+            textView.text = "Enter Tweet"
+        }
+        let numChar = textView.text.characters.count
+        
+        characterCountLabel.text = "\(140-numChar)/140 Characters Remaining"
        
         
         // Do any additional setup after loading the view.
